@@ -814,7 +814,10 @@ class Wkhtml2pdf
         $command .= $this->_have_headerhtml ? " --margin-top 20 --header-html " . escapeshellarg($this->_headerfilename) : "";
         $command .= $this->_have_footerhtml ? " --margin-bottom 20 --footer-html " . escapeshellarg($this->_footerfilename) : "";
         $command .= ($this->getOptions()) ? " {$this->getOptions()} " : "";
-
+	
+	// disable margin left and right
+        $command .= " --margin-left 0 --margin-right 0";
+        
         /*
          * ignore some errors with some urls as recommended with this wkhtmltopdf error message:
          *      Error: Failed loading page <url> (sometimes it will work just to ignore this error with --load-error-handling ignore)
